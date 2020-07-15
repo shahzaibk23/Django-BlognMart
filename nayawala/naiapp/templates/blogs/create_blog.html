@@ -1,0 +1,17 @@
+
+
+<form action="." method='POST' > {% csrf_token %}
+<!--	{{ formset.errors.as_p }}-->
+<!--  	{{ formset.non_field_errors.as_p }}-->
+<!--  	{{ formset.non_form_errors.as_p }}-->
+
+	<input type="text" name="title" value="title" />
+	<input type="file" accept="image/*" name= "picture"/>
+	<input type="text" name="content"/>
+	<input type="text" name="summary"/>
+
+
+	 {{ form.as_p }}
+    <input type='submit' value= 'Save' />
+</form>
+
