@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V5</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'product/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/css-hamburgers/hamburgers.min.cs' %}s">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/vendor/noui/nouislider.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'product/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'product/css/main.css' %}">
+<!--===============================================================================================-->
+
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+				<span class="contact100-form-title">
+					Add Product
+				</span>
+
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+					<span class="label-input100">Product Title *</span>
+					<input class="input100" type="text" name="title" placeholder="Enter Name of your Product ...">
+{#                    {{ form.title }}#}
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+					<span class="label-input100">Summary *</span>
+					<input class="input100" type="text" name="summary" placeholder="Enter Your Email ">
+{#                    {{ form.summary }}#}
+
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Thumbnail</span>
+					<input type="file" name="pic" />
+{#                    {{ form.pic }}#}
+
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Categories *</span>
+					<div>
+						<select class="js-select2" name="cat_title">
+							<option>Please chooses</option>
+                            {% for i in cats %}
+							<option value="{{ i.title }}">{{ i.title }}</option>
+							{% endfor %}
+						</select>
+
+{#                        {{ form.cat }}#}
+
+
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+
+				<div class="w-full dis-none js-show-service">
+					<div class="wrap-contact100-form-radio">
+						<span class="label-input100">Upload Pictures</span>
+
+						<div class="contact100-form-radio m-t-15">
+{#							<input  type="file" name="displayImage1" >#}
+                            {{ form.displayImage1 }}
+						</div>
+
+						<div class="contact100-form-radio m-t-15">
+{#							<input  type="file" name="displayImage2" >#}
+                            {{ form.displayImage2 }}
+						</div>
+
+						<div class="contact100-form-radio m-t-15">
+{#							<input  type="file" name="displayImage3" >#}
+                            {{ form.displayImage3 }}
+						</div>
+					</div>
+
+					<div class="wrap-contact100-form-range">
+						<span class="label-input100">Budget *</span>
+{#                        {{ form.price }}#}
+
+{#						<div class="contact100-form-range-value">#}
+{#							 $<span id="value-upper" >980</span>#}
+{#							<input type="text" name="from-value">#}
+{#							<input type="number" name="price" >#}
+
+{#                        <input id="value-upper" type="number" name="price" >#}
+{#						</div>#}
+
+{#						<div class="contact100-form-range-bar">#}
+{#							<div id="filter-bar"></div>#}
+{#						</div>#}
+
+                        <div class="quantity">
+                            <input type="number" min="1" max="1000" step="1" value="1" name="price">
+                        </div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Description">
+					<textarea class="input100" name="desc" placeholder="Your description here..."></textarea>
+{#                    {{ form.desc }}#}
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'product/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'product/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/vendor/noui/nouislider.min.js' %}"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'product/js/main.js' %}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

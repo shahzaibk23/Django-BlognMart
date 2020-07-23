@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+    <!-- Title Page-->
+    <title>Create Blog</title>
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="{% static 'blogs/css/main.css' %}" rel="stylesheet" media="all">
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400'>
+
+    <link rel="stylesheet" href="{% static 'dropdown/css/style.css' %}">
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Create Blog</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data" > {% csrf_token %}
+                        <!-- {{ form.picture.as_p }} -->
+                        <!-- {{ form.datetime }} -->
+                        <!-- {{ form.blogger  }} -->
+                        <div class="form-row">
+                            <div class="name" style="font-size: 25px;">Title</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text"  name="title" value="title" placeholder="Your Blog name here ..">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Upload Thumbnail</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input  type="file" accept="image/*" name="picture" />
+                                </div>
+                                <div class="label--desc">Upload your Thumbnail. Max file size 50 MB</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name" style="font-size: 25px;">Categories</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="select_mate" data-mate-select="active" >
+                                    <select name="cat_title" onclick="return false;" id="">
+                                        {% for i in obj %}
+                                        <option value="{{ i.cat_title }}" >{{ i.cat_title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                        <path d="M0-.75h24v24H0z" fill="none"/>
+                                    </svg></span>
+                                    <div class="cont_list_select_mate">
+                                      <ul class="cont_select_int">  </ul> 
+                                    </div>
+                                      </div>
+
+
+<!--                                     <textarea class="textarea&#45;&#45;style-6" name="content" rows="18" placeholder="Your Content goes here ..."></textarea>-->
+                                </div>
+
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="name" style="font-size: 25px;">Summary</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="summary"  rows="5" placeholder="Your Summary goes here ..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name" style="font-size: 25px;">Content</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="content" rows="18" placeholder="Your Content goes here ..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Create Blog</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{% static 'js/global.js' %}"></script>
+
+    <script src="{% static 'dropdown/js/index.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
